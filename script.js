@@ -25,13 +25,13 @@ function getHumanChoice(){
 }
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice){
-        alert("Its a tie!");
+        alert(humanChoice + " vs " + computerChoice + " Its a tie!");
     }
-    else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock")) {
+    else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper")) {
         alert(humanChoice + " vs " + computerChoice + ". You win!")
     }
-    else if((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "scissors" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "paper")) {
-        alert(humanChoice + " vs " + computerChoice + ". You win!")
+    else{
+        alert(humanChoice + " vs " + computerChoice + ". You Lose.")
     }
 }
 
