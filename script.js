@@ -21,17 +21,20 @@ getComputerChoice()
 
 function getHumanChoice(){
     var userChoice = prompt("Please choose: 'rock' 'paper' or 'scissors'");
+    userChoice = userChoice.toLowerCase();
     return userChoice;
 }
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice){
-        alert(humanChoice + " vs " + computerChoice + " Its a tie!");
+        alert(humanChoice + " vs " + computerChoice + ". Its a tie!");
+        humanScore += 1;
     }
     else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper")) {
         alert(humanChoice + " vs " + computerChoice + ". You win!")
     }
     else{
         alert(humanChoice + " vs " + computerChoice + ". You Lose.")
+        computerScore += 1;
     }
 }
 
