@@ -1,5 +1,6 @@
 var humanScore = 0;
 var computerScore = 0;
+var gameLength = 5;
 
 function getComputerChoice(){
     var choice = Math.random();
@@ -38,4 +39,19 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-playRound(getHumanChoice(),getComputerChoice());
+function playGame(){
+    for (let i=0; i < gameLength; i++){
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+    
+        playRound(humanChoice,computerChoice);
+    }
+    if (computerScore > humanScore){
+        alert("Computer wins this time :(")
+    }
+    else{
+        alert("You win!!!")
+    }
+}
+
+playGame();
