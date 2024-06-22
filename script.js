@@ -36,16 +36,24 @@ rockBtn.addEventListener('click', () => {
     })
 
 function playRound(humanChoice, computerChoice){
+    const humScr = document.querySelector(".playerScore");
+    const cmpScr = document.querySelector(".computerScore")
+    const battleFeed = document.querySelector(".battleFeed")
+    const battleFeedEntry = document.createElement('li');
+
     if (humanChoice === computerChoice){
-        alert(humanChoice + " vs " + computerChoice + ". Its a tie!");
-        humanScore += 1;
+        battleFeedEntry.textContent = humanChoice + " vs " + computerChoice + ". Its a tie!";
     }
     else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper")) {
-        alert(humanChoice + " vs " + computerChoice + ". You win!")
+        battleFeedEntry.textContent = (humanChoice + " vs " + computerChoice + ". You win!");
+        humanScore += 1;
     }
     else{
-        alert(humanChoice + " vs " + computerChoice + ". You Lose.")
+        battleFeedEntry.textContent = (humanChoice.toString() + " vs " + computerChoice.toString() + ". You lose.");
         computerScore += 1;
     }
+    battleFeed.appendChild(battleFeedEntry);
+    humScr.textContent = "Player: " + humanScore.toString();
+    cmpScr.textContent = "Computer: " + computerScore.toString();
 }
 
