@@ -16,7 +16,6 @@ function getComputerChoice(){
     }
     console.log(action);
     return action;
-
 }
 
 const rockBtn = document.querySelector(".rockBtn");
