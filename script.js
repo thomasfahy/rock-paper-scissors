@@ -1,5 +1,6 @@
 var humanScore = 0;
 var computerScore = 0;
+var roundNumber = 1;
 var gameLength = 5;
 
 function getComputerChoice(){
@@ -42,18 +43,19 @@ function playRound(humanChoice, computerChoice){
     const battleFeedEntry = document.createElement('li');
 
     if (humanChoice === computerChoice){
-        battleFeedEntry.textContent = humanChoice + " vs " + computerChoice + ". Its a tie!";
+        battleFeedEntry.textContent = "Round " + roundNumber + ": " + humanChoice + " vs " + computerChoice + ".   Its a tie!";
     }
     else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper")) {
-        battleFeedEntry.textContent = (humanChoice + " vs " + computerChoice + ". You win!");
+        battleFeedEntry.textContent = ("Round " + roundNumber + ": " + humanChoice + " vs " + computerChoice + ".   You win!");
         humanScore += 1;
     }
     else{
-        battleFeedEntry.textContent = (humanChoice.toString() + " vs " + computerChoice.toString() + ". You lose.");
+        battleFeedEntry.textContent = ("Round " + roundNumber + ": " + humanChoice.toString() + " vs " + computerChoice.toString() + ".   You lose.");
         computerScore += 1;
     }
     battleFeed.appendChild(battleFeedEntry);
     humScr.textContent = "Player: " + humanScore.toString();
     cmpScr.textContent = "Computer: " + computerScore.toString();
+    roundNumber+= 1;
 }
 
