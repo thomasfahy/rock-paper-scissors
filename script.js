@@ -2,6 +2,20 @@ var humanScore = 0;
 var computerScore = 0;
 var gameLength = 5;
 
+const rockBtn = document.querySelector(".rockBtn");
+const paperBtn = document.querySelector(".paperBtn");
+const scissorsBtn = document.querySelector(".scissorsBtn");
+
+rockBtn.addEventListener('click', () => {
+    alert("Pressed Rock");
+})
+scissorsBtn.addEventListener('click', () => {
+    alert("Pressed Scissors");
+})
+paperBtn.addEventListener('click', () => {
+    alert("Pressed Paper");
+})
+
 function getComputerChoice(){
     var choice = Math.random();
     console.log(choice);
@@ -21,10 +35,11 @@ function getComputerChoice(){
 getComputerChoice()
 
 function getHumanChoice(){
-    var userChoice = prompt("Please choose: 'rock' 'paper' or 'scissors'");
-    userChoice = userChoice.toLowerCase();
-    return userChoice;
+
+
 }
+
+
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice){
         alert(humanChoice + " vs " + computerChoice + ". Its a tie!");
@@ -38,8 +53,3 @@ function playRound(humanChoice, computerChoice){
         computerScore += 1;
     }
 }
-
-
-    
-playRound(humanChoice,computerChoice);
-
