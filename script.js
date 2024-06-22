@@ -1,5 +1,6 @@
 var humanScore = 0;
 var computerScore = 0;
+var roundNumber = 1;
 var gameLength = 5;
 
 function getComputerChoice(){
@@ -16,42 +17,45 @@ function getComputerChoice(){
     }
     console.log(action);
     return action;
-
 }
-getComputerChoice()
 
-function getHumanChoice(){
-    var userChoice = prompt("Please choose: 'rock' 'paper' or 'scissors'");
-    userChoice = userChoice.toLowerCase();
-    return userChoice;
-}
+const rockBtn = document.querySelector(".rockBtn");
+const paperBtn = document.querySelector(".paperBtn");
+const scissorsBtn = document.querySelector(".scissorsBtn");
+
+rockBtn.addEventListener('click', () => {
+    computerChoice = getComputerChoice();
+    playRound("rock", computerChoice);
+    })
+    paperBtn.addEventListener('click', () => {
+        computerChoice = getComputerChoice();
+        playRound("paper", computerChoice);
+    })
+    scissorsBtn.addEventListener('click', () => {
+        computerChoice = getComputerChoice();
+        playRound("scissors", computerChoice);
+    })
+
 function playRound(humanChoice, computerChoice){
+    const humScr = document.querySelector(".playerScore");
+    const cmpScr = document.querySelector(".computerScore")
+    const battleFeed = document.querySelector(".battleFeed")
+    const battleFeedEntry = document.createElement('li');
+
     if (humanChoice === computerChoice){
-        alert(humanChoice + " vs " + computerChoice + ". Its a tie!");
-        humanScore += 1;
+        battleFeedEntry.textContent = "Round " + roundNumber + ": " + humanChoice + " vs " + computerChoice + ".   Its a tie!";
     }
     else if((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "paper")) {
-        alert(humanChoice + " vs " + computerChoice + ". You win!")
+        battleFeedEntry.textContent = ("Round " + roundNumber + ": " + humanChoice + " vs " + computerChoice + ".   You win!");
+        humanScore += 1;
     }
     else{
-        alert(humanChoice + " vs " + computerChoice + ". You Lose.")
+        battleFeedEntry.textContent = ("Round " + roundNumber + ": " + humanChoice.toString() + " vs " + computerChoice.toString() + ".   You lose.");
         computerScore += 1;
     }
+    battleFeed.appendChild(battleFeedEntry);
+    humScr.textContent = "Player: " + humanScore.toString();
+    cmpScr.textContent = "Computer: " + computerScore.toString();
+    roundNumber+= 1;
 }
 
-function playGame(){
-    for (let i=0; i < gameLength; i++){
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-    
-        playRound(humanChoice,computerChoice);
-    }
-    if (computerScore > humanScore){
-        alert("Computer wins this time :(")
-    }
-    else{
-        alert("You win!!!")
-    }
-}
-
-playGame();
