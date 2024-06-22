@@ -39,19 +39,7 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    for (let i=0; i < gameLength; i++){
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-    
-        playRound(humanChoice,computerChoice);
-    }
-    if (computerScore > humanScore){
-        alert("Computer wins this time :(")
-    }
-    else{
-        alert("You win!!!")
-    }
-}
 
-playGame();
+    
+playRound(humanChoice,computerChoice);
+
